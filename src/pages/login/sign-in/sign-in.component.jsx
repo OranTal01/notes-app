@@ -1,15 +1,26 @@
 import React from 'react';
 import FormInput from '../../../components/form-input/form-input.component';
 import CustomButton from '../../../components/custom-button/custom-button.component';
-import './sign-in.style.scss';
 import { Link } from 'react-router-dom';
+import { signInWithGoogle } from '../../../firebase/firebase-google';
+import { connect } from 'react-redux';
+import './sign-in.style.scss';
 
-const SignIn = () => {
+
+
+const SignIn = ({ currentUser, history }) => {
+    const handelSubmit = (e) => {
+        e.preventDefault()
+        if (currentUser) {
+            history.push('/notes')
+        }
+    }
     return (
         <div className="container">
             <h4>sign in with email and password</h4>
             {/* { this.state.error && <p className="error">{ this.state.error }</p> } */ }
-            <form>
+            <form
+                onSubmit={ handelSubmit }>
                 <FormInput
                     type="email"
                     name="email"
@@ -21,13 +32,15 @@ const SignIn = () => {
                     label="Password"
                 />
                 <div className="button">
-                    <CustomButton>
+                    <CustomButton customButton>
                         Sign In
                     </CustomButton>
-                    <CustomButton>
+                    <CustomButton
+                        customButton
+                        onClick={ signInWithGoogle }>
                         Sign In With Goggle
                     </CustomButton>
-                    <CustomButton>
+                    <CustomButton customButton>
                         <Link to='/sign-up'>
                             Sign Up
                         </Link>
@@ -38,5 +51,7 @@ const SignIn = () => {
 
     );
 };
-
-export default SignIn
+const mapStateToProps = (state) => ({
+    currentUser: state.user
+})
+export default connect(mapStateToProps)(SignIn)

@@ -57,7 +57,9 @@ class NotesForm extends Component {
                         cols="30"
                         rows="10"
                         label='Enter Note Text' />
-                    <CustomButton>Add Note</CustomButton>
+                    <CustomButton customButton>
+                        Add Note
+                        </CustomButton>
                 </form>
             </div>
         );

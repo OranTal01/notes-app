@@ -35,7 +35,9 @@ const NotesFilter = ({ filter, setText, sortByDate, sortByAlphabetically }) => {
                 <option value="date">Sort By Date</option>
                 <option value="alphabetically">Sort By Alphabetically</option>
             </select>
-            <CustomButton inverted>
+            <CustomButton
+                customButton
+                inverted>
                 <Link
                     to='/add-note'>
                     Add Note
