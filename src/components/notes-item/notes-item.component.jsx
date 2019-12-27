@@ -7,11 +7,11 @@ import './notes-item.style.scss';
 
 
 const NoteItem = ({ note, removeItem }) => {
-    const { noteTitle, noteText, id, creatAt } = note
+    const { noteTitle, noteText, id, createdAt } = note
     return (
         <Link to={ `edit-note/${id}` }>
             <div>
-                { `Last edited ${moment(creatAt).fromNow()}` }
+                { `Last edited ${moment(createdAt).fromNow()}` }
             </div>
             <div>
                 { noteTitle }

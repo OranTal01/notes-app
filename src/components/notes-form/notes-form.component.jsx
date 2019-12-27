@@ -7,7 +7,7 @@ class NotesForm extends Component {
     state = {
         noteTitle: this.props.note ? this.props.note.noteTitle : '',
         noteText: this.props.note ? this.props.note.noteText : '',
-        createAt: this.props.note ? moment(this.props.note.createAt) : moment(),
+        createdAt: moment(),
         error: ''
     }
 
@@ -26,7 +26,7 @@ class NotesForm extends Component {
             this.props.onSubmit({
                 noteTitle: this.state.noteTitle,
                 noteText: this.state.noteText,
-                createAt: this.state.createAt.valueOf()
+                createdAt: this.state.createdAt.valueOf()
             })
             this.setState(() => ({
                 noteTitle: '',
