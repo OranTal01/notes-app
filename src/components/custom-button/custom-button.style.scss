@@ -1,0 +1,42 @@
+.custom-button {
+    min-width: 165px;
+    width: auto;
+    height: 50px;
+    letter-spacing: 0.5px;
+    line-height: 50px;
+    padding: 0 35px 0 35px;
+    font-size: 15px;
+    font-family: "Open Sans Condensed";
+    font-weight: bolder;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    background: #43799c;
+    box-shadow: 0 4px 4px #396684;
+    color: white;
+    transition: background .3s ease;
+    outline: none;
+    position: relative;
+    border-radius: 5px;
+
+    &.inverted {
+        min-width: 100px;
+        display: inline-block;
+        line-height: 30px;
+        height: 30px;
+    }
+
+    &:hover {
+        background: #396684;
+        box-shadow: 0 3px 3px #396684;
+        top: 1px;
+    }
+
+    &:active {
+        background: #396684;
+        box-shadow: 0 2px 2px #396684;
+        top: 2px;
+    }
+}

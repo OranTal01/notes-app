@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import './notes-form.style.scss';
+import FormInput from '../form-input/form-input.component';
 import moment from 'moment';
-
+import './notes-form.style.scss';
+import CustomButton from '../custom-button/custom-button.component';
 
 class NotesForm extends Component {
     state = {
@@ -42,22 +43,21 @@ class NotesForm extends Component {
                 { this.state.error && <p>{ this.state.error }</p> }
                 <form
                     onSubmit={ this.handelSubmit }>
-                    <input
+                    <FormInput
                         onChange={ this.handelChange }
                         value={ this.state.noteTitle }
                         type="text"
                         name="noteTitle"
                         label='Note Title'
                     />
-                    <textarea
+                    <FormInput
                         onChange={ this.handelChange }
                         value={ this.state.noteText }
                         name="noteText"
                         cols="30"
                         rows="10"
-                        label='Enter Note Text'
-                    ></textarea>
-                    <button>Add Note</button>
+                        label='Enter Note Text' />
+                    <CustomButton>Add Note</CustomButton>
                 </form>
             </div>
         );

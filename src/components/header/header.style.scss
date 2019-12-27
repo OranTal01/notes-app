@@ -1,23 +1,26 @@
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
 .header {
     background: #43799c;
     color: white;
-    padding: 1.6rem 0;
-    .header__title{
-        font-size: 3.2rem;
-        margin-bottom: .4rem;
+    padding: 16px 0;
+
+    .header__title {
+        font-size: 32px;
+        margin-bottom: 4px;
     }
-    .header__subtitle{
-        font-size: 1.6rem;
+
+    .header__subtitle {
+        font-size: 16px;
         font-weight: 300;
     }
-    .header--link{
+
+    .header__link {
         color: white;
         text-decoration: none;
     }
-}
-
-.container{
-    max-width: 60rem;
-    margin: 0 auto;
-    padding: 0 1.6rem;
 }

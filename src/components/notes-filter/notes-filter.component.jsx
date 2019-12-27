@@ -4,6 +4,7 @@ import { setTextFilter, sortByDate, sortByAlphabetically } from '../../redux/fil
 import { DATE } from '../../redux/filters/filter-notes.types';
 import { filterSelectorItems } from '../../redux/filters/filter-notes.selectors';
 import { Link } from "react-router-dom";
+import CustomButton from '../custom-button/custom-button.component';
 import './notes-filter.style.scss';
 
 
@@ -34,11 +35,12 @@ const NotesFilter = ({ filter, setText, sortByDate, sortByAlphabetically }) => {
                 <option value="date">Sort By Date</option>
                 <option value="alphabetically">Sort By Alphabetically</option>
             </select>
-            <Link
-                className="button"
-                to='/add-note'>
-                Add Note
+            <CustomButton inverted>
+                <Link
+                    to='/add-note'>
+                    Add Note
             </Link>
+            </CustomButton>
         </div>
     );
 };

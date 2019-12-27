@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import { createBrowserHistory } from "history";
 import './header.style.scss';
 
 const Header = () => {
@@ -9,7 +8,7 @@ const Header = () => {
         <div className='header'>
             <div className="container">
                 <Link
-                    className="header--link"
+                    className="header__link"
                     to='/notes'>
                     <h1 className="header__title">Notes App</h1>
                 </Link>
