@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { setTextFilter, sortByDate, sortByAlphabetically } from '../../redux/filters/filter-notes.action';
 import { DATE } from '../../redux/filters/filter-notes.types';
+import { filterSelectorItems } from '../../redux/filters/filter-notes.selectors';
 import './notes-filter.style.scss';
 
 
@@ -35,7 +36,7 @@ const NotesFilter = ({ filter, setText, sortByDate, sortByAlphabetically }) => {
 };
 
 const mapStateToProps = (state) => ({
-    filter: state.filter
+    filter: filterSelectorItems(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({

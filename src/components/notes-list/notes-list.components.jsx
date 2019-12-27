@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import NoteItem from '../notes-item/notes-item.component';
 import { selectFilter } from './select-notes.utils';
+import { filterSelectorItems } from '../../redux/filters/filter-notes.selectors';
+import { selectNotesItems } from '../../redux/notes/notes.selectors';
 
 const NotesList = ({ notes }) => {
     return (
@@ -12,7 +14,7 @@ const NotesList = ({ notes }) => {
 };
 
 const mapStateToProps = (state) => ({
-    notes: selectFilter(state.notes.notes, state.filter)
+    notes: selectFilter(selectNotesItems(state), filterSelectorItems(state))
 });
 
 export default connect(mapStateToProps)(NotesList);

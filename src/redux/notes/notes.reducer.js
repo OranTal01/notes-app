@@ -1,7 +1,7 @@
 import { ADD_NOTE, REMOVE_NOTE, EDIT_NOTE } from './notes.types';
 import { removeNoteUtils, editNoteUtils } from './notes.utils';
 const INITIAL_STATE = {
-    notes: []
+    notesItems: []
 }
 
 const notesReducer = (state = INITIAL_STATE, action) => {
@@ -9,17 +9,17 @@ const notesReducer = (state = INITIAL_STATE, action) => {
         case ADD_NOTE:
             return {
                 ...state,
-                notes: [...state.notes, action.payload]
+                notesItems: [...state.notesItems, action.payload]
             }
         case REMOVE_NOTE:
             return {
                 ...state,
-                notes: removeNoteUtils(state.notes, action.payload)
+                notesItems: removeNoteUtils(state.notesItems, action.payload)
             }
         case EDIT_NOTE:
             return {
                 ...state,
-                notes: editNoteUtils(state.notes, action.id, action.payload)
+                notesItems: editNoteUtils(state.notesItems, action.id, action.payload)
             }
         default:
             return state

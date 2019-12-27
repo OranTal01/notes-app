@@ -9,18 +9,20 @@ import './notes-item.style.scss';
 const NoteItem = ({ note, removeItem }) => {
     const { noteTitle, noteText, id, createdAt } = note
     return (
-        <Link to={ `edit-note/${id}` }>
-            <div>
-                { `Last edited ${moment(createdAt).fromNow()}` }
-            </div>
-            <div>
-                { noteTitle }
-            </div>
-            <div>
-                { noteText }
-            </div>
+        <div>
+            <Link to={ `edit-note/${id}` }>
+                <div>
+                    { `Last edited ${moment(createdAt).fromNow()}` }
+                </div>
+                <div>
+                    { noteTitle }
+                </div>
+                <div>
+                    { noteText }
+                </div>
+            </Link>
             <button onClick={ () => removeItem(id) }>Remove Note</button>
-        </Link>
+        </div>
     );
 };
 

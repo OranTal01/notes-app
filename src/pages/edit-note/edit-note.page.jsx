@@ -2,6 +2,7 @@ import React from 'react';
 import NotesForm from '../../components/notes-form/notes-form.component';
 import { connect } from 'react-redux';
 import { editNote } from '../../redux/notes/notes.actions';
+import { selectNotesItems } from '../../redux/notes/notes.selectors';
 import './edit-note.style.scss';
 
 
@@ -20,7 +21,7 @@ const EditPage = (props) => {
 };
 
 const mapStateToProps = (state, props) => ({
-    note: state.notes.notes.find((note) => note.id === props.match.params.id)
+    note: selectNotesItems(state).find((note) => note.id === props.match.params.id)
 });
 
 const mapDispatchToProps = (dispatch) => ({
