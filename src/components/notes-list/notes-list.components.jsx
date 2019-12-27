@@ -5,11 +5,13 @@ import { selectFilter } from './select-notes.utils';
 import { filterSelectorItems } from '../../redux/filters/filter-notes.selectors';
 import { selectNotesItems } from '../../redux/notes/notes.selectors';
 
+
 const NotesList = ({ notes }) => {
     return (
         <div>
             { notes.map((note, index) => <NoteItem key={ index } note={ note } />) }
         </div>
+
     );
 };
 

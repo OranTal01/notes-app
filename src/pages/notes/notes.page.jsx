@@ -5,7 +5,7 @@ import './notes.page.style.scss';
 
 const NotesPage = () => {
     return (
-        <div>
+        <div className="filter-continuer">
             <NotesFilter />
             <NotesList />
         </div>

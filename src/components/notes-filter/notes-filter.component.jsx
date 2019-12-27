@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { setTextFilter, sortByDate, sortByAlphabetically } from '../../redux/filters/filter-notes.action';
 import { DATE } from '../../redux/filters/filter-notes.types';
 import { filterSelectorItems } from '../../redux/filters/filter-notes.selectors';
+import { Link } from "react-router-dom";
 import './notes-filter.style.scss';
 
 
@@ -16,8 +17,9 @@ const NotesFilter = ({ filter, setText, sortByDate, sortByAlphabetically }) => {
         }
     }
     return (
-        <div>
+        <div className="container">
             <input
+                className="input"
                 placeholder="Search Note"
                 type="text"
                 name="search"
@@ -25,12 +27,18 @@ const NotesFilter = ({ filter, setText, sortByDate, sortByAlphabetically }) => {
                 onChange={ (e) => setText(e.target.value) }
             />
             <select
+                className="dropdown"
                 onChange={ handelOnSelect }
                 value={ filter.sortBy }
                 name="sortBy">
                 <option value="date">Sort By Date</option>
                 <option value="alphabetically">Sort By Alphabetically</option>
             </select>
+            <Link
+                className="button"
+                to='/add-note'>
+                Add Note
+            </Link>
         </div>
     );
 };

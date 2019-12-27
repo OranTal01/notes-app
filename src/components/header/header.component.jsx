@@ -1,12 +1,20 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import { createBrowserHistory } from "history";
 import './header.style.scss';
 
 const Header = () => {
+
     return (
-        <div>
-            <Link to='/notes'>Notes</Link>
-            <Link to='/add-note'>Add Note</Link>
+        <div className='header'>
+            <div className="container">
+                <Link
+                    className="header--link"
+                    to='/notes'>
+                    <h1 className="header__title">Notes App</h1>
+                </Link>
+                <h2 className="header__subtitle">Take notes and never forget</h2>
+            </div>
         </div>
     );
 };
