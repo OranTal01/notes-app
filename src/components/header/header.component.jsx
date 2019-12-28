@@ -10,20 +10,24 @@ const Header = ({ currentUser }) => {
     return (
         <div className='header'>
             <div className="container">
-                <Link
-                    className="header__link"
-                    to='/notes'>
-                    <h1 className="header__title">Notes App</h1>
-                </Link>
-                <h2 className="header__subtitle">Take notes and never forget</h2>
-                { currentUser ? <p>{ `Welcome back: ${currentUser.displayName}` }</p> : null }
-                { currentUser ? <CustomButton
-                    onClick={ () => auth.signOut() }
-                    logout>
-                    <Link to='/'>
-                        Logout
+                <div>
+                    <Link
+                        className="header__link"
+                        to='/notes'>
+                        <h1 className="header__title">Notes App</h1>
                     </Link>
-                </CustomButton> : null }
+                    <h2 className="header__subtitle">Take notes and never forget</h2>
+                </div>
+                <div>
+                    { currentUser ? <CustomButton
+                        onClick={ () => auth.signOut() }
+                        logout>
+                        <Link to='/'>
+                            Logout
+                    </Link>
+                    </CustomButton> : null }
+                    { currentUser ? <p>{ `Welcome back: ${currentUser.displayName}` }</p> : null }
+                </div>
             </div>
         </div>
     );

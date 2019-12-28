@@ -7,11 +7,18 @@ import { connect } from 'react-redux';
 
 
 class NotesApp extends Component {
+
+  unsubscribeFromAuth = null
+
   componentDidMount() {
     const { setCurrentUser } = this.props;
-    auth.onAuthStateChanged((user) => {
+    this.unsubscribeFromAuth = auth.onAuthStateChanged((user) => {
       setCurrentUser(user)
     });
+  };
+
+  componentWillUnmount() {
+    this.unsubscribeFromAuth()
   };
 
   render() {
