@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AppRouter from './routes';
+import AppRouter from './routes/routes';
 import { auth } from './firebase/firebase';
 import { setCurrentUser } from './redux/user/user.actions';
 import { connect } from 'react-redux';
