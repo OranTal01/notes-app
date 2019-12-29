@@ -17,5 +17,6 @@ export const selectFilter = (notes, { text, sortBy }) => {
                 return 0
             }
         }
+        return {}
     })
 }

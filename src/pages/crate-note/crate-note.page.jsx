@@ -11,9 +11,7 @@ const AddNotePage = ({ addNote, history }) => {
         history.push('/notes')
     }
     return (
-        <div>
-            <NotesForm onSubmit={ handelOnSubmit } />
-        </div>
+        <NotesForm onSubmit={ handelOnSubmit } />
     );
 };
 const mapDispatchToState = (dispatch) => ({

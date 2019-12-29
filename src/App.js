@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import AppRouter from './routes';
 import { auth } from './firebase/firebase';
 import { setCurrentUser } from './redux/user/user.actions';
-import './App.css';
 import { connect } from 'react-redux';
-
+import { createUserProfileDocument } from './firebase/firebase-create-user';
+import './App.css';
 
 class NotesApp extends Component {
 
@@ -12,8 +12,18 @@ class NotesApp extends Component {
 
   componentDidMount() {
     const { setCurrentUser } = this.props;
-    this.unsubscribeFromAuth = auth.onAuthStateChanged((user) => {
-      setCurrentUser(user)
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async (user) => {
+      if (user) {
+        const userRef = await createUserProfileDocument(user);
+        userRef.onSnapshot((snapShot) => {
+          setCurrentUser({
+            id: snapShot.id,
+            ...snapShot.data()
+          })
+        })
+      } else {
+        setCurrentUser(user)
+      }
     });
   };
 

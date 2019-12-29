@@ -39,7 +39,7 @@ class NotesForm extends Component {
 
     render() {
         return (
-            <div>
+            <div className="container">
                 { this.state.error && <p>{ this.state.error }</p> }
                 <form
                     onSubmit={ this.handelSubmit }>
