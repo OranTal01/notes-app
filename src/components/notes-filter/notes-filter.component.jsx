@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { setTextFilter, sortByDate, sortByAlphabetically } from '../../redux/filters/filter-notes.action';
 import { DATE } from '../../redux/filters/filter-notes.types';
-import { filterSelectorItems } from '../../redux/filters/filter-notes.selectors';
+import { filterItemsSelector } from '../../redux/filters/filter-notes.selectors';
 import { Link } from "react-router-dom";
 import CustomButton from '../custom-button/custom-button.component';
 import './notes-filter.style.scss';
@@ -48,7 +48,7 @@ const NotesFilter = ({ filter, setText, sortByDate, sortByAlphabetically }) => {
 };
 
 const mapStateToProps = (state) => ({
-    filter: filterSelectorItems(state)
+    filter: filterItemsSelector(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
 
-const selectNotes = (state) => state.notes
+const notesSelector = (state) => state.notes
 
-export const selectNotesItems = createSelector([selectNotes], (notes) => notes.notesItems)
+export const notesItemsSelector = createSelector([notesSelector], (notes) => notes.notesItems)

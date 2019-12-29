@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import CustomButton from '../custom-button/custom-button.component';
 import { auth } from '../../firebase/firebase';
 import { connect } from 'react-redux';
+import { currentUserSelector } from '../../redux/user/user.selector';
 import './header.style.scss';
 
 
@@ -33,6 +34,6 @@ const Header = ({ currentUser }) => {
     );
 };
 const mapStateToProps = (state) => ({
-    currentUser: state.user.currentUser
+    currentUser: currentUserSelector(state)
 })
 export default connect(mapStateToProps)(Header);
